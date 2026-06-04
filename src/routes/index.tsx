@@ -277,7 +277,7 @@ function Portfolio() {
       title: "Open Living Interior",
       meta: "Interior staging · North Charleston",
       span: "md:col-span-8 aspect-[16/10]",
-      asset: stagingAsset,
+      asset: exterior3Asset,
       alt: "Open-plan living room and kitchen with bright finishes and wood slat detailing.",
     },
     {
