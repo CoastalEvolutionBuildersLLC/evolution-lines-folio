@@ -102,7 +102,7 @@ function Hero() {
     <section id="top" className="relative overflow-hidden border-b border-border/50">
       <img
         src={stagingAsset.url}
-        alt=""
+        alt="Bright interior space with refined coastal detailing."
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover opacity-25"
       />
