@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 // generate-index.js (ES module)
-// Generates index.html for Netlify SPA deployment
-// Works whether vite build outputs to dist/ or dist/client/
+// Generates or copies index.html for Netlify SPA deployment.
+// Priority:
+//   1. Use prerendered index.html from Nitro (dist/public/index.html)
+//   2. Fallback to generating a shell index.html from dist/client/assets
 
-import { existsSync, readdirSync, writeFileSync } from 'fs';
+import { existsSync, readdirSync, writeFileSync, copyFileSync, readFileSync } from 'fs';
 import { join, resolve, dirname, relative } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -11,6 +13,16 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const root = resolve(__dirname, '..');
+
+// Check if Nitro prerendered an index.html (dist/public/index.html)
+const prerenderHtml = join(root, 'dist', 'public', 'index.html');
+if (existsSync(prerenderHtml)) {
+  // Copy prerendered HTML to dist/client/ for Netlify to serve
+  const destDir = join(root, 'dist', 'client');
+  copyFileSync(prerenderHtml, join(destDir, 'index.html'));
+  console.log('Used prerendered index.html from dist/public/index.html');
+  process.exit(0);
+}
 
 // TanStack Start outputs to dist/client; plain Vite outputs to dist
 let srcDir = join(root, 'dist', 'client');
@@ -21,7 +33,9 @@ if (!existsSync(join(srcDir, 'assets'))) {
 const assetsDir = join(srcDir, 'assets');
 
 if (!existsSync(assetsDir)) {
-  console.error('ERROR: Could not find assets in dist/client/assets or dist/assets.');
+  console.error('ERROR: Could not find prerendered HTML or assets directory.');
+  console.error('  Checked:', prerenderHtml);
+  console.error('  Checked:', assetsDir);
   console.error('Did the build succeed?');
   process.exit(1);
 }
@@ -59,7 +73,6 @@ const html = `<!DOCTYPE html>
 </html>`;
 
 writeFileSync(join(srcDir, 'index.html'), html);
-console.log(`index.html written to: ${srcDir}`);
+console.log(`Shell index.html written to: ${srcDir}`);
 console.log(`  JS:  ${mainJs}`);
 console.log(`  CSS: ${cssFile || 'none'}`);
-console.log(`  Publish dir: ${relative(root, srcDir)}`);
