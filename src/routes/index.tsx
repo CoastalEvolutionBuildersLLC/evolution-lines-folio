@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import logoAsset from "@/assets/coastal-evolution-logo.png.asset.json";
+import logoUrl from "@/assets/Company Logo.png";
 import stagingAsset from "@/assets/staging-2.jpg.asset.json";
 import exterior1Asset from "@/assets/exterior-1.png.asset.json";
 import exterior2Asset from "@/assets/exterior-2.png.asset.json";
@@ -63,7 +63,7 @@ function Nav() {
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-md border-b border-border/60">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 h-20 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-3">
-          <img src={logoAsset.url} alt="Coastal Evolution Builders" className="h-14 w-auto" />
+                    <img src={logoUrl} alt="Coastal Evolution Builders" className="h-14 w-auto" />
           <span className="sr-only">Coastal Evolution Builders</span>
         </a>
         <nav className="hidden md:flex items-center gap-9">
@@ -476,7 +476,7 @@ function Footer() {
     <footer className="border-t border-border/70 bg-ink text-background/80">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
         <div className="flex items-center gap-4">
-          <img src={logoAsset.url} alt="" className="h-14 w-auto invert brightness-0 opacity-90" />
+                  <img src={logoUrl} alt="" className="h-14 w-auto invert brightness-0 opacity-90" />
           <div>
             <div className="font-display text-lg text-background">Coastal Evolution Builders LLC</div>
             <div className="text-xs uppercase tracking-[0.25em] mt-1 opacity-70">
