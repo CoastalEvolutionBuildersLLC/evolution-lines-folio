@@ -1,22 +1,29 @@
 #!/usr/bin/env node
 // generate-index.js
 // Generates a minimal index.html for Netlify SPA deployment
-// after `vite build` or `bun run build` produces assets in dist/client/assets
+// Works whether vite build outputs to dist/ or dist/client/
 
 const fs = require('fs');
 const path = require('path');
 
-const distDir = path.resolve(__dirname, '..', 'dist', 'client');
+const root = path.resolve(__dirname, '..');
+
+// TanStack Start outputs to dist/client; plain Vite outputs to dist
+let distDir = path.join(root, 'dist', 'client');
+if (!fs.existsSync(path.join(distDir, 'assets'))) {
+  distDir = path.join(root, 'dist');
+}
+
 const assetsDir = path.join(distDir, 'assets');
 
 if (!fs.existsSync(assetsDir)) {
-  console.error('ERROR: dist/client/assets not found. Did the build succeed?');
+  console.error('ERROR: Could not find assets in dist/client/assets or dist/assets. Did the build succeed?');
   process.exit(1);
 }
 
 const files = fs.readdirSync(assetsDir);
 
-// Find the main JS entry (largest .js file, or one not named "chunk")
+// Find the main JS entry (one not named "chunk", fallback to first)
 const jsFiles = files.filter(f => f.endsWith('.js'));
 const mainJs = jsFiles.find(f => !f.includes('chunk')) || jsFiles[0];
 
@@ -24,7 +31,7 @@ const mainJs = jsFiles.find(f => !f.includes('chunk')) || jsFiles[0];
 const cssFile = files.find(f => f.endsWith('.css'));
 
 if (!mainJs) {
-  console.error('ERROR: No JS file found in dist/client/assets');
+  console.error('ERROR: No JS file found in assets directory:', assetsDir);
   process.exit(1);
 }
 
@@ -47,4 +54,6 @@ const html = `<!DOCTYPE html>
 </html>`;
 
 fs.writeFileSync(path.join(distDir, 'index.html'), html);
-console.log(`index.html created (JS: ${mainJs}, CSS: ${cssFile || 'none'})`);
+console.log(`index.html written to: ${distDir}`);
+console.log(`  JS:  ${mainJs}`);
+console.log(`  CSS: ${cssFile || 'none'}`);
