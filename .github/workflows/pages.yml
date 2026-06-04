@@ -35,10 +35,17 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: List output
+        run: |
+          echo '=== root ===' && ls -la
+          echo '=== .output ===' && ls -la .output 2>/dev/null || echo 'no .output'
+          echo '=== dist ===' && ls -la dist 2>/dev/null || echo 'no dist'
+          echo '=== .output/public ===' && ls -la .output/public 2>/dev/null || echo 'no .output/public'
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./.output/public
 
   deploy:
     environment:
