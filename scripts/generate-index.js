@@ -1,28 +1,32 @@
 #!/usr/bin/env node
-// generate-index.js
-// Generates index.html and prepares dist/public for Netlify SPA deployment
+// generate-index.js (ES module)
+// Generates index.html for Netlify SPA deployment
 // Works whether vite build outputs to dist/ or dist/client/
 
-const fs = require('fs');
-const path = require('path');
+import { existsSync, readdirSync, writeFileSync } from 'fs';
+import { join, resolve, dirname, relative } from 'path';
+import { fileURLToPath } from 'url';
 
-const root = path.resolve(__dirname, '..');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const root = resolve(__dirname, '..');
 
 // TanStack Start outputs to dist/client; plain Vite outputs to dist
-let srcDir = path.join(root, 'dist', 'client');
-if (!fs.existsSync(path.join(srcDir, 'assets'))) {
-  srcDir = path.join(root, 'dist');
+let srcDir = join(root, 'dist', 'client');
+if (!existsSync(join(srcDir, 'assets'))) {
+  srcDir = join(root, 'dist');
 }
 
-const assetsDir = path.join(srcDir, 'assets');
+const assetsDir = join(srcDir, 'assets');
 
-if (!fs.existsSync(assetsDir)) {
+if (!existsSync(assetsDir)) {
   console.error('ERROR: Could not find assets in dist/client/assets or dist/assets.');
   console.error('Did the build succeed?');
   process.exit(1);
 }
 
-const files = fs.readdirSync(assetsDir);
+const files = readdirSync(assetsDir);
 
 // Find the main JS entry (one not named "chunk", fallback to first)
 const jsFiles = files.filter(f => f.endsWith('.js'));
@@ -54,9 +58,8 @@ const html = `<!DOCTYPE html>
   </body>
 </html>`;
 
-// Write index.html directly into the detected dist dir (which is the publish dir)
-fs.writeFileSync(path.join(srcDir, 'index.html'), html);
+writeFileSync(join(srcDir, 'index.html'), html);
 console.log(`index.html written to: ${srcDir}`);
 console.log(`  JS:  ${mainJs}`);
 console.log(`  CSS: ${cssFile || 'none'}`);
-console.log(`  Publish directory to use in netlify.toml: ${path.relative(root, srcDir)}`);
+console.log(`  Publish dir: ${relative(root, srcDir)}`);
