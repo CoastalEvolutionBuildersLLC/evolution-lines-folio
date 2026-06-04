@@ -1,5 +1,5 @@
 [build]
-  command = "npm install && npm run build && node -e \"const fs=require('fs');const path=require('path');const assetsDir='dist/client/assets';const files=fs.readdirSync(assetsDir);const js=files.find(f=>f.endsWith('.js')&&!f.includes('chunk'));const css=files.find(f=>f.endsWith('.css'));const html='<!DOCTYPE html><html lang=\\\"en\\\"><head><meta charset=\\\"UTF-8\\\"><meta name=\\\"viewport\\\" content=\\\"width=device-width,initial-scale=1.0\\\"><title>Coastal Evolution Builders</title>'+(css?'<link rel=\\\"stylesheet\\\" href=\\\"/assets/'+css+'\\\">':'')+'</head><body><div id=\\\"root\\\"></div><script type=\\\"module\\\" src=\\\"/assets/'+js+'\\\"></script></body></html>';fs.writeFileSync('dist/client/index.html',html);console.log('index.html created');\""
+  command = "npm install && npm run build && node scripts/generate-index.js"
   publish = "dist/client"
 
 [build.environment]
