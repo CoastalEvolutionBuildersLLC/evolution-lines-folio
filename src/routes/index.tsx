@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import logoUrl from "@/assets/Company Logo.png";
 import stagingAsset from "@/assets/staging-2.jpg.asset.json";
+import stagingImage from "@/assets/staging-2.jpg";
 import exterior1Asset from "@/assets/exterior-1.png.asset.json";
 import exterior2Asset from "@/assets/exterior-2.png.asset.json";
 import exterior3Asset from "@/assets/exterior-3.jpg.asset.json";
@@ -101,7 +102,7 @@ function Hero() {
   return (
     <section id="top" className="relative overflow-hidden border-b border-border/50">
      <img
-        src={stagingAsset.url}
+        src={stagingImage}
         alt="Bright interior space with refined coastal detailing."
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover opacity-40"
