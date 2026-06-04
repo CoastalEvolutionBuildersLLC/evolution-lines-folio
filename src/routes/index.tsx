@@ -18,8 +18,6 @@ export const Route = createFileRoute("/")({
         "@context": "https://schema.org",
         "@type": "GeneralContractor",
         name: "Coastal Evolution Builders LLC",
-        email: "info@coastalevolutionbuilders.com",
-        telephone: "+1-843-410-3516",
         address: { "@type": "PostalAddress", addressLocality: "North Charleston", addressRegion: "SC", addressCountry: "US" },
         areaServed: "South Carolina",
       }),
@@ -304,8 +302,15 @@ function Portfolio() {
   );
 }
 
+// Email parts kept split so naive scrapers can't reassemble them from source.
+const E_USER = ["i", "n", "f", "o"].join("");
+const E_DOMAIN = ["coastalevolutionbuilders", "com"].join(".");
+const getEmail = () => `${E_USER}\u0040${E_DOMAIN}`;
+
 function Contact() {
   const [status, setStatus] = useState<"idle" | "sent">("idle");
+  const [emailRevealed, setEmailRevealed] = useState(false);
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
@@ -314,9 +319,11 @@ function Contact() {
     const body = encodeURIComponent(
       `${data.get("message") || ""}\n\n— Reply to: ${data.get("email") || ""}`
     );
-    window.location.href = `mailto:info@coastalevolutionbuilders.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:${getEmail()}?subject=${subject}&body=${body}`;
     setStatus("sent");
   };
+
+  const revealEmail = () => setEmailRevealed(true);
 
   return (
     <section id="contact" className="border-t border-border/70">
@@ -330,15 +337,23 @@ function Contact() {
             <div className="space-y-6">
               <div>
                 <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-1">Email</div>
-                <a href="mailto:info@coastalevolutionbuilders.com" className="font-display text-2xl hover:text-accent transition-colors">
-                  info@coastalevolutionbuilders.com
-                </a>
-              </div>
-              <div>
-                <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-1">Text or call</div>
-                <a href="tel:+18434103516" className="font-display text-2xl hover:text-accent transition-colors">
-                  843.410.3516
-                </a>
+                {emailRevealed ? (
+                  <a
+                    href={`mailto:${getEmail()}`}
+                    className="font-display text-2xl hover:text-accent transition-colors break-all"
+                  >
+                    {/* Render with zero-width joiners so the rendered DOM still resists basic regex scraping */}
+                    {getEmail().split("").join("\u200B")}
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={revealEmail}
+                    className="font-display text-2xl text-foreground hover:text-accent transition-colors underline underline-offset-4 decoration-accent/60"
+                  >
+                    Click to reveal email
+                  </button>
+                )}
               </div>
               <div>
                 <div className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-1">Studio</div>
