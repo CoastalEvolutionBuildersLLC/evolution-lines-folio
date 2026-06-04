@@ -72,9 +72,6 @@ function Nav() {
               {s.label}
             </a>
           ))}
-          <a href="#contact" className="text-sm px-5 py-2 border border-foreground/80 hover:bg-foreground hover:text-background transition-colors">
-            Start a project
-          </a>
         </nav>
         <button
           aria-label="Menu"
