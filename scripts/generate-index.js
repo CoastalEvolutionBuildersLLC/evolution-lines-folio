@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // generate-index.js
-// Generates a minimal index.html for Netlify SPA deployment
+// Generates index.html and prepares dist/public for Netlify SPA deployment
 // Works whether vite build outputs to dist/ or dist/client/
 
 const fs = require('fs');
@@ -9,15 +9,16 @@ const path = require('path');
 const root = path.resolve(__dirname, '..');
 
 // TanStack Start outputs to dist/client; plain Vite outputs to dist
-let distDir = path.join(root, 'dist', 'client');
-if (!fs.existsSync(path.join(distDir, 'assets'))) {
-  distDir = path.join(root, 'dist');
+let srcDir = path.join(root, 'dist', 'client');
+if (!fs.existsSync(path.join(srcDir, 'assets'))) {
+  srcDir = path.join(root, 'dist');
 }
 
-const assetsDir = path.join(distDir, 'assets');
+const assetsDir = path.join(srcDir, 'assets');
 
 if (!fs.existsSync(assetsDir)) {
-  console.error('ERROR: Could not find assets in dist/client/assets or dist/assets. Did the build succeed?');
+  console.error('ERROR: Could not find assets in dist/client/assets or dist/assets.');
+  console.error('Did the build succeed?');
   process.exit(1);
 }
 
@@ -53,7 +54,9 @@ const html = `<!DOCTYPE html>
   </body>
 </html>`;
 
-fs.writeFileSync(path.join(distDir, 'index.html'), html);
-console.log(`index.html written to: ${distDir}`);
+// Write index.html directly into the detected dist dir (which is the publish dir)
+fs.writeFileSync(path.join(srcDir, 'index.html'), html);
+console.log(`index.html written to: ${srcDir}`);
 console.log(`  JS:  ${mainJs}`);
 console.log(`  CSS: ${cssFile || 'none'}`);
+console.log(`  Publish directory to use in netlify.toml: ${path.relative(root, srcDir)}`);
