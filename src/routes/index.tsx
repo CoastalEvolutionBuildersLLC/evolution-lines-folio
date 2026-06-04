@@ -396,10 +396,13 @@ function Footer() {
   return (
     <footer className="border-t border-border/70 bg-ink text-background/80">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div>
-          <div className="font-display text-xl text-background">Coastal Evolution Builders LLC</div>
-          <div className="text-xs uppercase tracking-[0.25em] mt-2 opacity-70">
-            North Charleston, SC · Licensed General Contractor
+        <div className="flex items-center gap-4">
+          <img src={logoAsset.url} alt="" className="h-14 w-auto invert brightness-0 opacity-90" />
+          <div>
+            <div className="font-display text-lg text-background">Coastal Evolution Builders LLC</div>
+            <div className="text-xs uppercase tracking-[0.25em] mt-1 opacity-70">
+              North Charleston, SC · Licensed General Contractor
+            </div>
           </div>
         </div>
         <div className="text-xs opacity-70">© {new Date().getFullYear()} Coastal Evolution Builders. All rights reserved.</div>
