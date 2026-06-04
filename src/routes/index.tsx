@@ -114,12 +114,12 @@ function Hero() {
           <div className="lg:col-span-7">
             <p className="text-xs uppercase tracking-[0.3em] text-accent mb-8">North Charleston · South Carolina</p>
             <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.02] tracking-tight max-w-5xl">
-              Homes built with <em className="text-accent not-italic font-normal">considered</em> proportion, <span className="italic">storm-ready</span> bones, and a quieter sense of luxury.
+              Homes built with <em className="text-accent not-italic font-normal">considered</em> proportion and a quieter sense of luxury.
             </h1>
           </div>
           <div className="lg:col-span-5 lg:pl-10">
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-md">
-              Coastal Evolution Builders crafts custom residences and select commercial spaces shaped by European tradition and engineered for the Lowcountry climate.
+              Coastal Evolution Builders LLC crafts custom residences and select commercial spaces shaped by European tradition and engineered for the Lowcountry climate.
             </p>
             <div className="mt-10 flex items-center gap-6">
               <a href="#portfolio" className="text-sm px-6 py-3 bg-foreground text-background hover:bg-accent transition-colors">
@@ -211,7 +211,7 @@ function Team() {
         <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-7 space-y-6 text-[1.05rem] leading-relaxed text-foreground/85">
             <p>
-              Coastal Evolution Builders is powered by more than 35 years of combined experience in construction, craftsmanship, and residential improvement. Although the company is from 2024, the people behind it bring seasoned, practical knowledge built on real work in the field and on actual job sites.
+              Coastal Evolution Builders LLC is powered by more than 35 years of combined experience in construction, craftsmanship, and residential improvement. Although the company is from 2024, the people behind it bring seasoned, practical knowledge built on real work in the field and on actual job sites.
             </p>
             <p>
               The company is co-owned by a dual-licensed builder who holds a general contractor license in two states and a residential builder license, alongside a partner with a strong background in interior renovations and European-influenced design. Clients gain both deep technical expertise and a refined design sensibility on every project.
@@ -481,7 +481,7 @@ function Footer() {
             </div>
           </div>
         </div>
-        <div className="text-xs opacity-70">© {new Date().getFullYear()} Coastal Evolution Builders. All rights reserved.</div>
+        <div className="text-xs opacity-70">© {new Date().getFullYear()} Coastal Evolution Builders LLC. All rights reserved.</div>
       </div>
     </footer>
   );
