@@ -214,11 +214,8 @@ function Team() {
               { role: "Co-owner · Design Lead", note: "Interior renovations & European-influenced design" },
             ].map((m) => (
               <div key={m.role} className="bg-card border border-border p-8">
-                <div className="aspect-[4/5] bg-stone/60 mb-6 flex items-center justify-center text-muted-foreground text-xs uppercase tracking-widest">
-                  Portrait placeholder
-                </div>
-                <div className="font-display text-xl">{m.role}</div>
-                <div className="text-sm text-muted-foreground mt-1">{m.note}</div>
+                <div className="font-display text-2xl">{m.role}</div>
+                <div className="text-sm text-muted-foreground mt-2">{m.note}</div>
               </div>
             ))}
           </div>
