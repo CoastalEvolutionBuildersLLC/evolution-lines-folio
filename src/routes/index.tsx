@@ -100,15 +100,16 @@ function Nav() {
 function Hero() {
   return (
     <section id="top" className="relative overflow-hidden border-b border-border/50">
-      <img
+     <img
         src={stagingAsset.url}
         alt="Bright interior space with refined coastal detailing."
         aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover opacity-25"
+        className="absolute inset-0 h-full w-full object-cover opacity-40"
       />
-      <div className="absolute inset-0 bg-background/82" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/55 via-background/20 to-background" />
-      <div className="paper-grain absolute inset-0 opacity-45 pointer-events-none" />
+      <div className="absolute inset-0 bg-background/68" />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/82 via-background/58 to-background/42" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-transparent to-background/78" />
+      <div className="paper-grain absolute inset-0 opacity-35 pointer-events-none" />
       <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-24 pb-28 md:pt-36 md:pb-40 relative">
         <div className="grid lg:grid-cols-12 gap-12 items-end">
           <div className="lg:col-span-7">
