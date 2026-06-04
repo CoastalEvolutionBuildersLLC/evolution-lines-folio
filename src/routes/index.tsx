@@ -56,9 +56,9 @@ function Nav() {
   return (
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-md border-b border-border/60">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 h-20 flex items-center justify-between">
-        <a href="#top" className="flex flex-col leading-tight">
-          <span className="font-display text-xl tracking-tight">Coastal Evolution</span>
-          <span className="text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground">Builders · est. 2024</span>
+        <a href="#top" className="flex items-center gap-3">
+          <img src={logoAsset.url} alt="Coastal Evolution Builders" className="h-14 w-auto" />
+          <span className="sr-only">Coastal Evolution Builders</span>
         </a>
         <nav className="hidden md:flex items-center gap-9">
           {sections.map((s) => (
