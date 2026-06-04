@@ -1,5 +1,5 @@
 [build]
-  command = "bun run build"
+  command = "bun run build && JS=$(ls dist/client/assets/*.js | head -1 | xargs basename) && CSS=$(ls dist/client/assets/*.css 2>/dev/null | head -1 | xargs basename 2>/dev/null || echo '') && printf '<!DOCTYPE html><html lang=en><head><meta charset=UTF-8><meta name=viewport content=\"width=device-width,initial-scale=1.0\"><title>Coastal Evolution Builders</title>%s</head><body><div id=root></div><script type=module src=/assets/%s></script></body></html>' \"$([ -n \"$CSS\" ] && echo \"<link rel=stylesheet href=/assets/$CSS>\" || echo '')\" \"$JS\" > dist/client/index.html"
   publish = "dist/client"
 
 [build.environment]
