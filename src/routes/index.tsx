@@ -1,6 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import logoAsset from "@/assets/coastal-evolution-logo.png.asset.json";
+import stagingAsset from "@/assets/staging-2.jpg.asset.json";
+import exterior1Asset from "@/assets/exterior-1.png.asset.json";
+import exterior2Asset from "@/assets/exterior-2.png.asset.json";
+import exterior3Asset from "@/assets/exterior-3.jpg.asset.json";
+import exterior5Asset from "@/assets/exterior-5.jpg.asset.json";
+import landscape3Asset from "@/assets/landscape-3.jpeg.asset.json";
+import landscape2Asset from "@/assets/landscape-2.png.asset.json";
+import interior5Asset from "@/assets/interior-5.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -27,10 +35,10 @@ export const Route = createFileRoute("/")({
 });
 
 const sections = [
+  { id: "portfolio", label: "Portfolio" },
   { id: "mission", label: "Mission" },
   { id: "team", label: "Team" },
   { id: "services", label: "Services" },
-  { id: "portfolio", label: "Portfolio" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -39,10 +47,10 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <Nav />
       <Hero />
+      <Portfolio />
       <Mission />
       <Team />
       <Services />
-      <Portfolio />
       <Contact />
       <Footer />
     </div>
@@ -94,13 +102,21 @@ function Nav() {
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
-      <div className="paper-grain absolute inset-0 opacity-60 pointer-events-none" />
+    <section id="top" className="relative overflow-hidden border-b border-border/50">
+      <img
+        src={stagingAsset.url}
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 h-full w-full object-cover opacity-25"
+      />
+      <div className="absolute inset-0 bg-background/82" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/55 via-background/20 to-background" />
+      <div className="paper-grain absolute inset-0 opacity-45 pointer-events-none" />
       <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-24 pb-28 md:pt-36 md:pb-40 relative">
         <div className="grid lg:grid-cols-12 gap-12 items-end">
           <div className="lg:col-span-7">
             <p className="text-xs uppercase tracking-[0.3em] text-accent mb-8">North Charleston · South Carolina</p>
-            <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.02] tracking-tight">
+            <h1 className="font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.02] tracking-tight max-w-5xl">
               Homes built with <em className="text-accent not-italic font-normal">considered</em> proportion, <span className="italic">storm-ready</span> bones, and a quieter sense of luxury.
             </h1>
           </div>
@@ -126,7 +142,7 @@ function Hero() {
             ["2024", "Founded"],
             ["1:1", "Owner-led builds"],
           ].map(([n, l]) => (
-            <div key={l} className="bg-background px-6 py-8">
+            <div key={l} className="bg-background/90 px-6 py-8 backdrop-blur-[1px]">
               <div className="font-display text-3xl md:text-4xl">{n}</div>
               <div className="text-xs uppercase tracking-widest text-muted-foreground mt-2">{l}</div>
             </div>
@@ -258,12 +274,62 @@ function Services() {
 
 function Portfolio() {
   const projects = [
-    { title: "Lowcountry Residence", meta: "Mount Pleasant · 2024", span: "md:col-span-8 aspect-[16/10]" },
-    { title: "Carolina Farmhouse", meta: "Summerville · 2025", span: "md:col-span-4 aspect-[4/5]" },
-    { title: "Coastal Retreat", meta: "Isle of Palms · 2025", span: "md:col-span-4 aspect-[4/5]" },
-    { title: "Mixed-Use Storefront", meta: "Park Circle · 2025", span: "md:col-span-8 aspect-[16/10]" },
-    { title: "Transylvanian-Inspired Home", meta: "Daniel Island · 2025", span: "md:col-span-6 aspect-[5/4]" },
-    { title: "Garden Pavilion", meta: "West Ashley · 2025", span: "md:col-span-6 aspect-[5/4]" },
+    {
+      title: "Open Living Interior",
+      meta: "Interior staging · North Charleston",
+      span: "md:col-span-8 aspect-[16/10]",
+      asset: stagingAsset,
+      alt: "Open-plan living room and kitchen with bright finishes and wood slat detailing.",
+    },
+    {
+      title: "Sunset Exterior",
+      meta: "Custom residence · Charleston",
+      span: "md:col-span-4 aspect-[4/5]",
+      asset: exterior1Asset,
+      alt: "Two-story coastal home exterior photographed at sunset.",
+    },
+    {
+      title: "Front Porch Refresh",
+      meta: "Exterior renovation · Lowcountry",
+      span: "md:col-span-4 aspect-[4/5]",
+      asset: exterior2Asset,
+      alt: "Single-story home exterior with white rocking chairs on the front porch.",
+    },
+    {
+      title: "Evening Facade",
+      meta: "Custom home · Park Circle",
+      span: "md:col-span-8 aspect-[16/10]",
+      asset: exterior3Asset,
+      alt: "Front elevation of a custom home illuminated at dusk.",
+    },
+    {
+      title: "Approach & Landscaping",
+      meta: "Ground-up build · Charleston area",
+      span: "md:col-span-6 aspect-[5/4]",
+      asset: exterior5Asset,
+      alt: "White custom home with landscaped walkway leading to a covered porch.",
+    },
+    {
+      title: "Backyard Cottage",
+      meta: "Accessory structure · Residential site",
+      span: "md:col-span-6 aspect-[5/4]",
+      asset: landscape3Asset,
+      alt: "Small backyard structure with a lawn, seating area, and stepping stone path.",
+    },
+    {
+      title: "Covered Outdoor Living",
+      meta: "Exterior detail · Pergola patio",
+      span: "md:col-span-12 aspect-[16/8]",
+      asset: landscape2Asset,
+      alt: "Covered patio seating area with white pergola framing and stone-look flooring.",
+    },
+    {
+      title: "Interior Detail",
+      meta: "Living space · Stair and trim detailing",
+      span: "md:col-span-5 aspect-[4/5]",
+      asset: interior5Asset,
+      alt: "Interior vignette showing stair balusters, trim details, and soft seating.",
+    },
   ];
   return (
     <section id="portfolio" className="border-t border-border/70 bg-secondary/30">
@@ -280,19 +346,19 @@ function Portfolio() {
             A small studio means a small, intentional portfolio. Full case studies available on request.
           </p>
         </div>
-        <div className="grid md:grid-cols-12 gap-4 md:gap-6">
-          {projects.map((p) => (
-            <figure key={p.title} className={`${p.span} group relative overflow-hidden bg-stone border border-border`}>
-              <div className="absolute inset-0 paper-grain opacity-70" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <div className="font-display text-foreground/30 text-5xl mb-2">+</div>
-                  <div className="text-[0.65rem] uppercase tracking-[0.3em] text-foreground/40">Photo placeholder</div>
-                </div>
-              </div>
-              <figcaption className="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-ink/70 to-transparent text-background opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="grid md:grid-cols-12 gap-4 md:gap-6 auto-rows-fr">
+          {projects.map((p, index) => (
+            <figure key={p.title} className={`${p.span} group relative overflow-hidden border border-border bg-card`}>
+              <img
+                src={p.asset.url}
+                alt={p.alt}
+                loading={index < 2 ? "eager" : "lazy"}
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/15 to-transparent" />
+              <figcaption className="absolute bottom-0 left-0 right-0 p-5 text-background">
                 <div className="font-display text-xl">{p.title}</div>
-                <div className="text-xs uppercase tracking-widest opacity-80">{p.meta}</div>
+                <div className="text-xs uppercase tracking-widest opacity-80 mt-1">{p.meta}</div>
               </figcaption>
             </figure>
           ))}
@@ -302,7 +368,6 @@ function Portfolio() {
   );
 }
 
-// Email parts kept split so naive scrapers can't reassemble them from source.
 const E_USER = ["i", "n", "f", "o"].join("");
 const E_DOMAIN = ["coastalevolutionbuilders", "com"].join(".");
 const getEmail = () => `${E_USER}\u0040${E_DOMAIN}`;
@@ -342,7 +407,6 @@ function Contact() {
                     href={`mailto:${getEmail()}`}
                     className="font-display text-2xl hover:text-accent transition-colors break-all"
                   >
-                    {/* Render with zero-width joiners so the rendered DOM still resists basic regex scraping */}
                     {getEmail().split("").join("\u200B")}
                   </a>
                 ) : (
@@ -379,7 +443,7 @@ function Contact() {
             </div>
             <div className="flex items-center justify-between gap-6 pt-2">
               <p className="text-xs text-muted-foreground">
-                Opens your email client. Prefer direct? Email or text us above.
+                Opens your email client. Prefer direct? Email us above.
               </p>
               <button
                 type="submit"
