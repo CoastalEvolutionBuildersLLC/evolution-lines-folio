@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import logoAsset from "@/assets/coastal-evolution-logo.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -55,9 +56,9 @@ function Nav() {
   return (
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-md border-b border-border/60">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 h-20 flex items-center justify-between">
-        <a href="#top" className="flex flex-col leading-tight">
-          <span className="font-display text-xl tracking-tight">Coastal Evolution</span>
-          <span className="text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground">Builders · est. 2024</span>
+        <a href="#top" className="flex items-center gap-3">
+          <img src={logoAsset.url} alt="Coastal Evolution Builders" className="h-14 w-auto" />
+          <span className="sr-only">Coastal Evolution Builders</span>
         </a>
         <nav className="hidden md:flex items-center gap-9">
           {sections.map((s) => (
@@ -395,10 +396,13 @@ function Footer() {
   return (
     <footer className="border-t border-border/70 bg-ink text-background/80">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div>
-          <div className="font-display text-xl text-background">Coastal Evolution Builders LLC</div>
-          <div className="text-xs uppercase tracking-[0.25em] mt-2 opacity-70">
-            North Charleston, SC · Licensed General Contractor
+        <div className="flex items-center gap-4">
+          <img src={logoAsset.url} alt="" className="h-14 w-auto invert brightness-0 opacity-90" />
+          <div>
+            <div className="font-display text-lg text-background">Coastal Evolution Builders LLC</div>
+            <div className="text-xs uppercase tracking-[0.25em] mt-1 opacity-70">
+              North Charleston, SC · Licensed General Contractor
+            </div>
           </div>
         </div>
         <div className="text-xs opacity-70">© {new Date().getFullYear()} Coastal Evolution Builders. All rights reserved.</div>
