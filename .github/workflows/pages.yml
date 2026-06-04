@@ -35,6 +35,33 @@ jobs:
       - name: Build
         run: bun run build
 
+      - name: Create index.html for GitHub Pages
+        run: |
+          # Find the JS and CSS entry files in dist/client/assets
+          JS_FILE=$(ls dist/client/assets/*.js | head -1 | xargs basename)
+          CSS_FILE=$(ls dist/client/assets/*.css 2>/dev/null | head -1 | xargs basename 2>/dev/null || echo '')
+          BASE="/evolution-lines-folio"
+          CSS_TAG=""
+          if [ -n "$CSS_FILE" ]; then
+            CSS_TAG="<link rel=\"stylesheet\" href=\"$BASE/assets/$CSS_FILE\">"
+          fi
+          cat > dist/client/index.html << EOF
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>Coastal Evolution Builders</title>
+            $CSS_TAG
+          </head>
+          <body>
+            <div id="root"></div>
+            <script type="module" src="$BASE/assets/$JS_FILE"></script>
+          </body>
+          </html>
+          EOF
+          echo "Created index.html with JS: $JS_FILE and CSS: $CSS_FILE"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
