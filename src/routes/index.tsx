@@ -18,8 +18,6 @@ export const Route = createFileRoute("/")({
         "@context": "https://schema.org",
         "@type": "GeneralContractor",
         name: "Coastal Evolution Builders LLC",
-        email: "info@coastalevolutionbuilders.com",
-        telephone: "+1-843-410-3516",
         address: { "@type": "PostalAddress", addressLocality: "North Charleston", addressRegion: "SC", addressCountry: "US" },
         areaServed: "South Carolina",
       }),
