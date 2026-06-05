@@ -14,10 +14,7 @@ import landscape3Image from "@/assets/landscape-3.jpeg";
 import landscape2Image from "@/assets/landscape-2.png";
 import interior6Image from "@/assets/interior-6.png";
 import interior4Image from "@/assets/interior-4.jpg";
-import exterior5Asset from "@/assets/exterior-5.jpg.asset.json";
-import landscape3Asset from "@/assets/landscape-3.jpeg.asset.json";
-import landscape2Asset from "@/assets/landscape-2.png.asset.json";
-import interior5Asset from "@/assets/interior-5.jpg.asset.json";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
