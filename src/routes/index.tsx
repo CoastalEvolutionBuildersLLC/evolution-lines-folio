@@ -19,7 +19,8 @@ import interior4Image from "@/assets/interior-4.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Coastal Evolution Builders — Custom Homes in Charleston, SC" },
+      { title: "Coastal Evolution Builders — Custom Homes in Charlesto
+        n, SC" },
       { name: "description", content: "Custom homes and select commercial builds in North Charleston, SC. European-inspired craftsmanship, storm-resilient construction, energy-conscious methods." },
       { property: "og:title", content: "Coastal Evolution Builders" },
       { property: "og:description", content: "Refined, storm-resilient custom homes in the Lowcountry." },
@@ -139,11 +140,12 @@ function Hero() {
           </div>
         </div>
 
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-px bg-border">
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
           {[
             ["35+", "Years combined experience"],
-            ["2", "Licensed in 2 states as builder and GC"],
             ["1:1", "Owner-led builds"],
+            ["2", "Licensed in 2 states"],
+            ["2 in 1", "Builder and General Contractor"],
           ].map(([n, l]) => (
             <div key={l} className="bg-background/90 px-6 py-8 backdrop-blur-[1px]">
               <div className="font-display text-3xl md:text-4xl">{n}</div>
