@@ -139,7 +139,7 @@ function Hero() {
           </div>
         </div>
 
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-3 gap-px bg-border">
           {[
             ["35+", "Years combined experience"],
             ["2", "Licensed in 2 states as builder and GC"],
