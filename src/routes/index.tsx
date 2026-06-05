@@ -3,9 +3,9 @@ import { useState } from "react";
 import logoUrl from "@/assets/Company Logo.png";
 import stagingAsset from "@/assets/staging-2.jpg.asset.json";
 import stagingImage from "@/assets/staging-2.jpg";
-import exterior1Asset from "@/assets/exterior-1.png.asset.json";
-import exterior2Asset from "@/assets/exterior-2.png.asset.json";
-import exterior3Asset from "@/assets/exterior-3.jpg.asset.json";
+import exterior1Image from "@/assets/exterior-1.png.asset.json";
+import exterior2Image from "@/assets/exterior-2.png.asset.json";
+import exterior3Image from "@/assets/exterior-3.jpg";
 import exterior5Asset from "@/assets/exterior-5.jpg.asset.json";
 import landscape3Asset from "@/assets/landscape-3.jpeg.asset.json";
 import landscape2Asset from "@/assets/landscape-2.png.asset.json";
@@ -277,8 +277,8 @@ function Portfolio() {
       title: "Open Living Interior",
       meta: "Interior staging · North Charleston",
       span: "md:col-span-8 aspect-[16/10]",
-      asset: exterior3Asset,
-      alt: "Open-plan living room and kitchen with bright finishes and wood slat detailing.",
+      asset: {url:exterior3Image},
+      alt: "Modern farmhouse with expansive wrap around porches.",
     },
     {
       title: "Sunset Exterior",
