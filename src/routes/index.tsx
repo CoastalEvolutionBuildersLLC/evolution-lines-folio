@@ -13,7 +13,7 @@ import exterior1Image from "@/assets/exterior-1.png";
 import landscape3Image from "@/assets/landscape-3.jpeg";
 import landscape2Image from "@/assets/landscape-2.png";
 import interior6Image from "@/assets/interior-6.png";
-import interior4Image from "@/assets/interior-4.png";
+import interior4Image from "@/assets/interior-4.jpg";
 import exterior5Asset from "@/assets/exterior-5.jpg.asset.json";
 import landscape3Asset from "@/assets/landscape-3.jpeg.asset.json";
 import landscape2Asset from "@/assets/landscape-2.png.asset.json";
