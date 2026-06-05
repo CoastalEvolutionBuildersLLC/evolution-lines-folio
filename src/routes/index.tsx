@@ -142,8 +142,7 @@ function Hero() {
         <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
           {[
             ["35+", "Years combined experience"],
-            ["2", "States licensed"],
-            ["2024", "Founded"],
+            ["2", "Licensed in 2 states as builder and GC"],
             ["1:1", "Owner-led builds"],
           ].map(([n, l]) => (
             <div key={l} className="bg-background/90 px-6 py-8 backdrop-blur-[1px]">
