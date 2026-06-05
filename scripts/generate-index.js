@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // generate-index.js (ES module)
 // Generates index.html for GitHub Pages deployment with correct base path.
-import { existsSync, readdirSync, writeFileSync, copyFileSync } from 'fs';
+import { existsSync, readdirSync, writeFileSync, readFileSync } from 'fs';
 import { join, resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
@@ -12,23 +12,33 @@ const root = resolve(__dirname, '..');
 // GitHub Pages base path
 const BASE = '/evolution-lines-folio';
 
-// TanStack Start with netlify preset outputs client assets to dist/client
+// Check if Nitro prerendered an index.html (dist/public/index.html)
+const prerenderHtml = join(root, 'dist', 'public', 'index.html');
+if (existsSync(prerenderHtml)) {
+  // Read the prerendered HTML and fix asset paths for GitHub Pages subdirectory
+  let html = readFileSync(prerenderHtml, 'utf8');
+  // Fix absolute asset paths: src="/assets/ -> src="/evolution-lines-folio/assets/
+  html = html.replace(/src="\/assets\//g, `src="${BASE}/assets/`);
+  html = html.replace(/href="\/assets\//g, `href="${BASE}/assets/`);
+  html = html.replace(/from "\/assets\//g, `from "${BASE}/assets/`);
+  const destDir = join(root, 'dist', 'client');
+  writeFileSync(join(destDir, 'index.html'), html);
+  console.log('Used prerendered index.html from dist/public/index.html (paths fixed for GitHub Pages)');
+  process.exit(0);
+}
+
+// Fallback: generate shell index.html from dist/client/assets
 const srcDir = join(root, 'dist', 'client');
 const assetsDir = join(srcDir, 'assets');
 
 if (!existsSync(assetsDir)) {
   console.error('ERROR: Could not find assets directory at', assetsDir);
-  console.error('Did the build succeed?');
   process.exit(1);
 }
 
 const files = readdirSync(assetsDir);
-
-// Find the main JS entry
 const jsFiles = files.filter(f => f.endsWith('.js'));
 const mainJs = jsFiles.find(f => !f.includes('chunk')) || jsFiles[0];
-
-// Find the CSS file
 const cssFile = files.find(f => f.endsWith('.css'));
 
 if (!mainJs) {
@@ -55,7 +65,4 @@ const html = `<!DOCTYPE html>
 </html>`;
 
 writeFileSync(join(srcDir, 'index.html'), html);
-console.log(`index.html written to: ${srcDir}`);
-console.log(` JS: ${mainJs}`);
-console.log(` CSS: ${cssFile || 'none'}`);
-console.log(` Base path: ${BASE}`);
+console.log(`Shell index.html written. JS: ${mainJs}, Base: ${BASE}`);
