@@ -4,11 +4,8 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
-  HeadContent,
-  Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
-
+import { useEffect } from "react";
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
@@ -40,7 +37,6 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
-
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
@@ -72,24 +68,6 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Coastal Evolution Builders — Custom Homes, Charleston SC" },
-      {
-        name: "description",
-        content:
-          "Design-conscious custom homes and select commercial builds in North Charleston, SC. European-inspired craftsmanship, storm-resilient construction.",
-      },
-      { property: "og:title", content: "Coastal Evolution Builders" },
-      {
-        property: "og:description",
-        content:
-          "Custom homes and select commercial builds with European-inspired craftsmanship in the Lowcountry.",
-      },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
@@ -109,29 +87,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
-function RootShell({ children }: { children: ReactNode }) {
-  return (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
-
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
-
   return (
-    <RootShell>
-      <QueryClientProvider client={queryClient}>
-        {/* Required: nested routes render here. Removing breaks all child routes. */}
-        <Outlet />
-      </QueryClientProvider>
-    </RootShell>
+    <QueryClientProvider client={queryClient}>
+      <Outlet />
+    </QueryClientProvider>
   );
 }
