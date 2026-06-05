@@ -7,6 +7,9 @@ import exterior1Asset from "@/assets/exterior-1.png.asset.json";
 import exterior2Asset from "@/assets/exterior-2.png.asset.json";
 import exterior3Asset from "@/assets/exterior-3.jpg.asset.json";
 import exterior3Image from "@/assets/exterior-3.jpg";
+import exterior5Image from "@/assets/exterior-5.jpg";
+import exterior2Image from "@/assets/exterior-2.png";
+import exterior1Image from "@/assets/exterior-1.jpg";
 import exterior5Asset from "@/assets/exterior-5.jpg.asset.json";
 import landscape3Asset from "@/assets/landscape-3.jpeg.asset.json";
 import landscape2Asset from "@/assets/landscape-2.png.asset.json";
@@ -275,32 +278,32 @@ function Services() {
 function Portfolio() {
   const projects = [
     {
-      title: "Open Living Interior",
-      meta: "Interior staging · North Charleston",
+      title: "Coastal Design",
+      meta: "Wrap-Around Porches · Custom Build",
       span: "md:col-span-8 aspect-[16/10]",
       asset: {url:exterior3Image},
       alt: "Modern farmhouse with expansive wrap around porches.",
     },
     {
-      title: "Sunset Exterior",
-      meta: "Custom residence · Charleston",
+      title: "Modern Farmhouse",
+      meta: "Thoughtful Design · Custom Build",
       span: "md:col-span-4 aspect-[4/5]",
-      asset: exterior1Asset,
-      alt: "Two-story coastal home exterior photographed at sunset.",
+      asset: {url:exterior5Image},
+      alt: "Two-story modern farmhouse exterior",
     },
     {
-      title: "Front Porch Refresh",
-      meta: "Exterior renovation · Lowcountry",
+      title: "Modern House",
+      meta: "Spatially Optimized Design · Custom Build",
       span: "md:col-span-4 aspect-[4/5]",
-      asset: exterior2Asset,
-      alt: "Single-story home exterior with white rocking chairs on the front porch.",
+      asset: {url:exterior1Image},
+      alt: "Front elevation of a custom home illuminated at dusk",
     },
     {
-      title: "Evening Facade",
-      meta: "Custom home · Park Circle",
+      title: "Lowcountry Cottage",
+      meta: "Open Space Living · Full Renovation",
       span: "md:col-span-8 aspect-[16/10]",
-      asset: exterior3Asset,
-      alt: "Front elevation of a custom home illuminated at dusk.",
+      asset: {url:exterior2Image},
+      alt: "Single-story Lowcountry Cottage with white rocking chairs on the front porch."",
     },
     {
       title: "Approach & Landscaping",
