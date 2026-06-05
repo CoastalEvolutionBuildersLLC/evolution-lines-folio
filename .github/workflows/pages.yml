@@ -30,10 +30,16 @@ jobs:
         run: bun install
       - name: Build
         run: bun run build
+      - name: List build output
+        run: |
+          echo "=== dist ==="
+          ls -la dist/ 2>/dev/null || echo "no dist folder"
+          echo "=== .output/public ==="
+          ls -la .output/public/ 2>/dev/null || echo "no .output/public folder"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./.output/public
   deploy:
     environment:
       name: github-pages
