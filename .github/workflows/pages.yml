@@ -30,16 +30,12 @@ jobs:
         run: bun install
       - name: Build
         run: bun run build
-      - name: List build output
-        run: |
-          echo "=== dist ==="
-          ls -la dist/ 2>/dev/null || echo "no dist folder"
-          echo "=== .output/public ==="
-          ls -la .output/public/ 2>/dev/null || echo "no .output/public folder"
+      - name: Generate index.html
+        run: node scripts/generate-index.js
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./.output/public
+          path: ./dist/client
   deploy:
     environment:
       name: github-pages
