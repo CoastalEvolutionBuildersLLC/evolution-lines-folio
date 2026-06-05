@@ -326,15 +326,15 @@ function Portfolio() {
     {
       title: "Primary Suite Bath ",
       meta: "Spa Inspired Design · Bathroom Renovation ",
-      span: "md:col-span-12 aspect-[5/4]",
-      asset: {url:exterior2Image},
+      span: "md:col-span-6 aspect-[5/4]",
+      asset: {url:interior6Image},
       alt: "Spa bathtub and double-sink bathroom with large tiles flooring",
     },
     {
       title: "Primary Suite Bath",
       meta: "Rain Shower · Custom Design",
-      span: "md:col-span-5 aspect-[5/4]",
-      asset: interior5Asset,
+      span: "md:col-span-6 aspect-[5/4]",
+      asset: {url:interior4Image},
       alt: "Rain shower with spa features and glass doors.",
     },
   ];
