@@ -12,6 +12,8 @@ import exterior2Image from "@/assets/exterior-2.png";
 import exterior1Image from "@/assets/exterior-1.png";
 import landscape3Image from "@/assets/landscape-3.jpeg";
 import landscape2Image from "@/assets/landscape-2.png";
+import interior6Image from "@/assets/interior-6.png";
+import interior4Image from "@/assets/interior-4.png";
 import exterior5Asset from "@/assets/exterior-5.jpg.asset.json";
 import landscape3Asset from "@/assets/landscape-3.jpeg.asset.json";
 import landscape2Asset from "@/assets/landscape-2.png.asset.json";
@@ -322,18 +324,18 @@ function Portfolio() {
       alt: "Patio seating area with white pergola framing and stone-look flooring.",
     },
     {
-      title: "Outdoor Living",
-      meta: "Pergola patio · Custom Design ",
-      span: "md:col-span-12 aspect-[16/8]",
+      title: "Primary Suite Bath ",
+      meta: "Spa Inspired Design · Bathroom Renovation ",
+      span: "md:col-span-12 aspect-[5/4]",
       asset: {url:exterior2Image},
-      alt: "Patio seating area with white pergola framing and stone-look flooring.",
+      alt: "Spa bathtub and double-sink bathroom with large tiles flooring",
     },
     {
-      title: "Interior Detail",
-      meta: "Living space · Stair and trim detailing",
-      span: "md:col-span-5 aspect-[4/5]",
+      title: "Primary Suite Bath",
+      meta: "Rain Shower · Custom Design",
+      span: "md:col-span-5 aspect-[5/4]",
       asset: interior5Asset,
-      alt: "Interior vignette showing stair balusters, trim details, and soft seating.",
+      alt: "Rain shower with spa features and glass doors.",
     },
   ];
   return (
