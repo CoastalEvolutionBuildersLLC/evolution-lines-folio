@@ -19,8 +19,7 @@ import interior4Image from "@/assets/interior-4.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Coastal Evolution Builders — Custom Homes in Charlesto
-        n, SC" },
+      { title: "Coastal Evolution Builders — Custom Homes in Charleston, SC" },
       { name: "description", content: "Custom homes and select commercial builds in North Charleston, SC. European-inspired craftsmanship, storm-resilient construction, energy-conscious methods." },
       { property: "og:title", content: "Coastal Evolution Builders" },
       { property: "og:description", content: "Refined, storm-resilient custom homes in the Lowcountry." },
