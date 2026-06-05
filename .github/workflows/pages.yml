@@ -30,16 +30,8 @@ jobs:
         run: bun install
       - name: Build
         run: bun run build
-      - name: List build output
-        run: |
-          echo "=== dist/client ==="
-          ls -la dist/client/ 2>/dev/null || echo "no dist/client"
-          echo "=== dist/public ==="
-          ls -la dist/public/ 2>/dev/null || echo "no dist/public"
-          echo "=== dist/client/assets ==="
-          ls -la dist/client/assets/ 2>/dev/null || echo "no assets"
-      - name: Generate index.html
-        run: node scripts/generate-index.js
+      - name: List dist/client
+        run: ls -la dist/client/ 2>/dev/null || echo "no dist/client"
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
