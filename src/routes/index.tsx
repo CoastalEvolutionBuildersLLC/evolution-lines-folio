@@ -6,6 +6,7 @@ import stagingImage from "@/assets/staging-2.jpg";
 import exterior1Asset from "@/assets/exterior-1.png.asset.json";
 import exterior2Asset from "@/assets/exterior-2.png.asset.json";
 import exterior3Asset from "@/assets/exterior-3.jpg.asset.json";
+import exterior3Image from "@/assets/exterior-3.jpg";
 import exterior5Asset from "@/assets/exterior-5.jpg.asset.json";
 import landscape3Asset from "@/assets/landscape-3.jpeg.asset.json";
 import landscape2Asset from "@/assets/landscape-2.png.asset.json";
