@@ -144,8 +144,8 @@ function Hero() {
           {[
             ["35+", "Years combined experience"],
             ["1:1", "Owner-led builds"],
-            ["2", "Licensed in 2 states"],
-            ["2 in 1", "Builder and General Contractor"],
+            ["2", "States Licensed"],
+            ["2 in 1", "Builder and GC"],
           ].map(([n, l]) => (
             <div key={l} className="bg-background/90 px-6 py-8 backdrop-blur-[1px]">
               <div className="font-display text-3xl md:text-4xl">{n}</div>
