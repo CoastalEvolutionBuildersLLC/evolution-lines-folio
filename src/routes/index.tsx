@@ -296,14 +296,14 @@ function Portfolio() {
       meta: "Spatially Optimized Design · Custom Build",
       span: "md:col-span-4 aspect-[4/5]",
       asset: {url:exterior1Image},
-      alt: "Front elevation of a custom home illuminated at dusk",
+      alt: "Front elevation of a custom home illuminated at dusk.",
     },
     {
       title: "Lowcountry Cottage",
       meta: "Open Space Living · Full Renovation",
       span: "md:col-span-8 aspect-[16/10]",
       asset: {url:exterior2Image},
-      alt: "Single-story Lowcountry Cottage with white rocking chairs on the front porch."",
+      alt: "Single-story Lowcountry Cottage with white rocking chairs on the front porch.",
     },
     {
       title: "Approach & Landscaping",
