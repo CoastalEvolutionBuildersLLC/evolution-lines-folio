@@ -10,6 +10,8 @@ import exterior3Image from "@/assets/exterior-3.jpg";
 import exterior5Image from "@/assets/exterior-5.jpg";
 import exterior2Image from "@/assets/exterior-2.png";
 import exterior1Image from "@/assets/exterior-1.png";
+import landscape3Image from "@/assets/landscape-3.jpeg";
+import landscape2Image from "@/assets/landscape-2.png";
 import exterior5Asset from "@/assets/exterior-5.jpg.asset.json";
 import landscape3Asset from "@/assets/landscape-3.jpeg.asset.json";
 import landscape2Asset from "@/assets/landscape-2.png.asset.json";
@@ -306,25 +308,25 @@ function Portfolio() {
       alt: "Single-story Lowcountry Cottage with white rocking chairs on the front porch.",
     },
     {
-      title: "Approach & Landscaping",
-      meta: "Ground-up build · Charleston area",
-      span: "md:col-span-6 aspect-[5/4]",
-      asset: exterior5Asset,
-      alt: "White custom home with landscaped walkway leading to a covered porch.",
-    },
-    {
       title: "Backyard Cottage",
-      meta: "Accessory structure · Residential site",
+      meta: "Accessory Structure · Thoughtful Landscaping",
       span: "md:col-span-6 aspect-[5/4]",
-      asset: landscape3Asset,
+      asset: {url:landscape3Image},
       alt: "Small backyard structure with a lawn, seating area, and stepping stone path.",
     },
     {
-      title: "Covered Outdoor Living",
-      meta: "Exterior detail · Pergola patio",
+      title: "Outdoor Living",
+      meta: "Pergola patio · Custom Design ",
+      span: "md:col-span-6 aspect-[5/4]",
+      asset: {url:landscape2Image},
+      alt: "Patio seating area with white pergola framing and stone-look flooring.",
+    },
+    {
+      title: "Outdoor Living",
+      meta: "Pergola patio · Custom Design ",
       span: "md:col-span-12 aspect-[16/8]",
-      asset: landscape2Asset,
-      alt: "Covered patio seating area with white pergola framing and stone-look flooring.",
+      asset: {url:exterior2Image},
+      alt: "Patio seating area with white pergola framing and stone-look flooring.",
     },
     {
       title: "Interior Detail",
