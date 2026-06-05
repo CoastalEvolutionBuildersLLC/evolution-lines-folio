@@ -9,7 +9,7 @@ import exterior3Asset from "@/assets/exterior-3.jpg.asset.json";
 import exterior3Image from "@/assets/exterior-3.jpg";
 import exterior5Image from "@/assets/exterior-5.jpg";
 import exterior2Image from "@/assets/exterior-2.png";
-import exterior1Image from "@/assets/exterior-1.jpg";
+import exterior1Image from "@/assets/exterior-1.png";
 import exterior5Asset from "@/assets/exterior-5.jpg.asset.json";
 import landscape3Asset from "@/assets/landscape-3.jpeg.asset.json";
 import landscape2Asset from "@/assets/landscape-2.png.asset.json";
