@@ -330,7 +330,7 @@ function Portfolio() {
     {
       title: "Primary Suite Bath",
       meta: "Rain Shower · Custom Design",
-      span: "md:col-span-6 aspect-[5/4]",
+      span: "md:col-span-6 aspect-[4/5]",
       asset: {url:interior4Image},
       alt: "Rain shower with spa features and glass doors.",
     },
