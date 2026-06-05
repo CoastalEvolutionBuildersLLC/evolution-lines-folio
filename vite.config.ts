@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
 export default defineConfig({
-  base: '/evolution-lines-folio/',
+      base: '/',
   plugins: [
     react(),
     tailwindcss(),
