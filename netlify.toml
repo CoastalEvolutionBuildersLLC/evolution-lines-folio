@@ -1,9 +1,10 @@
 [build]
-  command = "npm install && npm run build"
+  command = "bun install && bun run build"
   publish = "dist/client"
 
 [build.environment]
   NODE_VERSION = "20"
+  BUN_VERSION = "latest"
 
 [functions]
   directory = "dist/server"
