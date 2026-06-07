@@ -432,7 +432,7 @@ function Contact() {
 
           <form onSubmit={onSubmit} className="lg:col-span-7 lg:pl-10 lg:border-l lg:border-border space-y-8">
             <Field label="Your email" name="email" type="email" required placeholder="you@domain.com" />
-            <Field label="Subject" name="subject" type="text" required placeholder="New custom home in Mount Pleasant" />
+            <Field label="Subject" name="subject" type="text" required placeholder="New Project" />
             <div>
               <label className="block text-xs uppercase tracking-[0.25em] text-muted-foreground mb-3">
                 Tell us about the project
